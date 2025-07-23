@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinja Pad</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Jinja Pad</h1>
+        <p>Jinjaテンプレートの学習・テスト用ツール</p>
+    </header>
+    
+    <main class="container">
+        <div class="editor-section">
+            <div class="input-panel">
+                <h2>テンプレート入力</h2>
+                <textarea id="template-input" placeholder="Jinjaテンプレートをここに入力してください...">Hello {{ name }}!
+{% for item in items %}
+- {{ item }}
+{% endfor %}</textarea>
+                <h3>変数データ (JSON)</h3>
+                <textarea id="data-input" placeholder="JSONデータを入力してください...">{
+  "name": "World",
+  "items": ["Apple", "Banana", "Cherry"]
+}</textarea>
+            </div>
+            
+            <div class="output-panel">
+                <h2>レンダリング結果</h2>
+                <div id="output" class="output-display">
+                    レンダーボタンを押してテンプレートを処理してください
+                </div>
+                <div id="error-display" class="error-display" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="render-btn" class="render-button">レンダー実行</button>
+            <button id="clear-btn" class="clear-button">クリア</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Jinjaテンプレートエンジンの学習にご活用ください</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
