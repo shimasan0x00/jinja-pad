@@ -24,9 +24,35 @@ When working with Claude Code:
 - Do not create files outside of the project folder
 - Do not edit files located outside of the project folder
 
-## Branch Management
-- Always create and work on a feature branch (`feature/*`) when working.
-- After completing your work, include the ClaudeCode session ID and a summary of the changes in your commit message.
+## Branch Management [CRITICAL - MUST FOLLOW]
+
+⚠️ **MANDATORY WORKFLOW - NO EXCEPTIONS**
+
+Before making ANY changes to code files, you MUST:
+
+1. **FIRST ACTION**: Check current branch with `git branch`
+2. **IF ON MAIN**: Immediately create a feature branch:
+   ```bash
+   git checkout -b feature/descriptive-name
+   ```
+3. **NEVER WORK ON MAIN**: Direct work on main branch is strictly prohibited
+
+### Required Workflow Steps:
+1. **Start**: `git checkout -b feature/your-task-name` 
+2. **Work**: Make all changes on the feature branch
+3. **Commit**: Include ClaudeCode session ID in commit messages
+4. **Push**: `git push origin feature/your-task-name`
+5. **PR**: Create pull request to merge into main
+
+### Git Hooks Setup:
+Run `./setup-hooks.sh` to install git hooks that enforce this workflow automatically.
+
+### Branch Naming Convention:
+- ✅ `feature/jinja-pad-implementation`
+- ✅ `feature/add-new-templates`  
+- ✅ `feature/fix-responsive-design`
+- ❌ `main` (never work here directly)
+- ❌ `dev`, `develop` (use feature/* pattern)
 
 ## Project Architecture
 
