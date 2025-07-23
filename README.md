@@ -31,11 +31,32 @@ Jinja Pad is a web application that allows you to write Jinja templates directly
 
 ## Supported Jinja Features
 
-- Variable expansion: `{{ variable }}`
-- Loop processing: `{% for item in items %}`
-- Conditional statements: `{% if condition %}`
-- Filters: `{{ variable | filter }}`
-- Nested objects: `{{ object.property }}`
+*Powered by Nunjucks 3.2.4 - a rich, powerful templating engine for JavaScript with full Jinja2 compatibility*
+
+### Core Template Syntax
+- **Variables**: `{{ variable }}`, `{{ object.property }}`, `{{ object["key"] }}`
+- **Loops**: `{% for item in items %}` with `loop.index`, `loop.first`, `loop.last`
+- **Conditionals**: `{% if %}`, `{% elif %}`, `{% else %}` with logical operators (`and`, `or`, `not`)
+- **Comments**: `{# This is a comment #}`
+- **Whitespace control**: `{%- if condition -%}` to strip whitespace
+- **Inline expressions**: `{{ "true" if condition else "false" }}`
+
+### Built-in Filters (40+ available)
+- **String operations**: `upper`, `lower`, `capitalize`, `title`, `trim`, `reverse`
+- **Array/List**: `first`, `last`, `length`, `sort`, `reverse`, `random`, `sum`
+- **Conversion**: `int`, `float`, `string`, `list`, `dump` (JSON)
+- **Text formatting**: `truncate`, `wordcount`, `center`, `indent`
+- **HTML/URL**: `escape`, `safe`, `striptags`, `urlencode`, `urlize`, `nl2br`
+- **Advanced**: `batch`, `slice`, `groupby`, `dictsort`, `default`
+- **Custom filters**: `join`, `replace` (enhanced versions)
+
+### Advanced Features
+- **Mathematical expressions**: `{{ (numbers | sum) / (numbers | length) }}`
+- **Filter chaining**: `{{ text | upper | truncate(50) | trim }}`
+- **Complex data structures**: Nested loops, conditions, and object manipulation
+- **Template inheritance**: `{% extends %}`, `{% block %}`, `{{ super() }}`
+- **Macros**: Reusable template functions `{% macro %}...{% endmacro %}`
+- **Imports**: `{% import %}`, `{% from %}` for modular templates
 
 ## Deployment
 
