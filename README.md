@@ -1,74 +1,73 @@
 # Jinja Pad
 
-Jinjaテンプレートの学習・テスト用Webアプリケーション。
+A web application for learning and testing Jinja templates.
 
 ![Jinja Pad](https://img.shields.io/badge/Jinja-Template%20Engine-337d37)
 ![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue)
 
-## 概要
+## Overview
 
-Jinja Padは、ブラウザ上でJinjaテンプレートを直接記述し、リアルタイムでレンダリング結果を確認できるWebアプリケーションです。Jinjaテンプレートエンジンの文法学習やテンプレートの動作確認に最適です。
+Jinja Pad is a web application that allows you to write Jinja templates directly in your browser and see the rendered output in real-time. It's perfect for learning Jinja template engine syntax and testing template behavior.
 
-## 機能
+## Features
 
-- 左右分割画面でテンプレート入力エリアと結果表示エリアを並列表示
-- テンプレートとデータを入力してボタン1つでリアルタイムレンダリング
-- 変数データをJSON形式で入力可能
-- テンプレートやJSONの構文エラーを分かりやすく表示
-- 初回アクセス時に学習用サンプルを自動表示
-- モバイルデバイスでも快適に利用可能なレスポンシブデザイン
+- Split-screen layout with template input area and result display area side by side
+- Real-time rendering with a single button click for templates and data
+- Variable data input in JSON format
+- Clear and user-friendly display of template and JSON syntax errors
+- Auto-loaded sample templates for learning on first visit
+- Responsive design for comfortable use on mobile devices
 
-## 使い方
+## Usage
 
-1. 左側の「テンプレート入力」エリアにJinjaテンプレートを記述
-2. 「変数データ (JSON)」エリアにテンプレートで使用する変数をJSON形式で入力
-3. 「レンダー実行」ボタンをクリック
-4. 右側の「レンダリング結果」エリアに処理結果が表示
+1. Write your Jinja template in the "Template Input" area on the left
+2. Enter variables for your template in JSON format in the "Variable Data (JSON)" area
+3. Click the "Render" button
+4. View the processed result in the "Rendered Output" area on the right
 
-### キーボードショートカット
+### Keyboard Shortcuts
 
-- `Ctrl + Enter`: テンプレートをレンダリング
+- `Ctrl + Enter`: Render template
 
-## サポートするJinja機能
+## Supported Jinja Features
 
-- 変数展開: `{{ variable }}`
-- ループ処理: `{% for item in items %}`
-- 条件分岐: `{% if condition %}`
-- フィルター: `{{ variable | filter }}`
-- ネストしたオブジェクト: `{{ object.property }}`
+- Variable expansion: `{{ variable }}`
+- Loop processing: `{% for item in items %}`
+- Conditional statements: `{% if condition %}`
+- Filters: `{{ variable | filter }}`
+- Nested objects: `{{ object.property }}`
 
-## デプロイ
+## Deployment
 
-このアプリケーションはGitHub Pagesでホストされており、以下のURLでアクセスできます。
+This application is hosted on GitHub Pages and can be accessed at:
 
 - [Jinja Pad](https://shimasan0x00.github.io/jinja-pad/)
 
-## 開発
+## Development
 
 ```bash
-# リポジトリをクローン
+# Clone the repository
 git clone https://github.com/shimasan0x00/jinja-pad.git
 cd jinja-pad
 
-# ローカルサーバーで実行（例：Python）
-python -m http.server 8000
+# Run with local server (example: Python)
+python -m http.server 9999
 
-# ブラウザでアクセス
-open http://localhost:8000
+# Access in browser
+open http://localhost:9999
 ```
 
-## 技術スタック
+## Technology Stack
 
-- HTML5/CSS3によるレスポンシブUI
-- JavaScript (ES6+)によるフロントエンド機能
-- NunjucksによるJinja2互換テンプレートエンジン
-- GitHub Pagesによる静的サイトホスティング
+- Responsive UI with HTML5/CSS3
+- Frontend functionality with JavaScript (ES6+)
+- Jinja2-compatible template engine with Nunjucks
+- Static site hosting with GitHub Pages
 
-## ライセンス
+## License
 
 MIT License
 
-## 貢献
+## Contributing
 
-プルリクエストやイシューの報告を歓迎します。
-
+Pull requests and issue reports are welcome.

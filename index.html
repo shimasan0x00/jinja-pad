@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jinja Pad</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏙️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
 </head>
 <body>
     <header>
         <h1>Jinja Pad</h1>
-        <p>Jinjaテンプレートの学習・テスト用ツール</p>
+        <p>A learning and testing tool for Jinja templates</p>
     </header>
     
     <main class="container">
         <div class="editor-section">
             <div class="input-panel">
-                <h2>テンプレート入力</h2>
-                <textarea id="template-input" placeholder="Jinjaテンプレートをここに入力してください...">Hello {{ name }}!
+                <h2>Template Input</h2>
+                <textarea id="template-input" placeholder="Enter your Jinja template here...">Hello {{ name }}!
 {% for item in items %}
 - {{ item }}
 {% endfor %}</textarea>
-                <h3>変数データ (JSON)</h3>
-                <textarea id="data-input" placeholder="JSONデータを入力してください...">{
+                <h3>Variable Data (JSON)</h3>
+                <textarea id="data-input" placeholder="Enter JSON data here...">{
   "name": "World",
   "items": ["Apple", "Banana", "Cherry"]
 }</textarea>
             </div>
             
             <div class="output-panel">
-                <h2>レンダリング結果</h2>
+                <h2>Rendered Output</h2>
                 <div id="output" class="output-display">
-                    レンダーボタンを押してテンプレートを処理してください
+                    Press the render button to process your template
                 </div>
                 <div id="error-display" class="error-display" style="display: none;"></div>
             </div>
         </div>
         
         <div class="controls">
-            <button id="render-btn" class="render-button">レンダー実行</button>
-            <button id="clear-btn" class="clear-button">クリア</button>
+            <button id="render-btn" class="render-button">Render</button>
+            <button id="clear-btn" class="clear-button">Clear</button>
         </div>
     </main>
     
     <footer>
-        <p>Jinjaテンプレートエンジンの学習にご活用ください</p>
+        <p>Use this tool to learn and practice Jinja template engine @shimasan0x00</p>
     </footer>
     
     <script src="script.js"></script>

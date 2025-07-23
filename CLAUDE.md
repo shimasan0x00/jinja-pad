@@ -81,6 +81,14 @@ python -m http.server 8000
 ```
 
 ### Documentation Quality
+```bash
+# Check documentation with textlint (via MCP server)
+# textlint is configured via .mcp.json and .textlintrc.json
+mcp textlint CLAUDE.md CLAUDE-ja.md
+
+# Auto-fix textlint issues
+mcp textlint --fix CLAUDE.md CLAUDE-ja.md
+```
 - textlint is configured via MCP server (see .mcp.json)
 - Run textlint checks before committing documentation changes
 - All documentation is in Japanese
