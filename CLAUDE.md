@@ -45,7 +45,7 @@ Before making ANY changes to code files, you MUST:
 5. **PR**: Create pull request to merge into main
 
 ### Git Hooks Setup:
-Run `./setup-hooks.sh` to install git hooks that enforce this workflow automatically.
+**REQUIRED FOR ALL DEVELOPERS**: Run `./setup-hooks.sh` to install git hooks that enforce this workflow automatically and prevent commits to main branch.
 
 ### Branch Naming Convention:
 - ✅ `feature/jinja-pad-implementation`
@@ -86,8 +86,11 @@ python -m http.server 8000
 - All documentation is in Japanese
 
 ### Deployment
-- Automatic deployment to GitHub Pages on push to main branch
-- Live URL: https://shimasan0x00.github.io/jinja-pad/
+- **Trigger**: Automatic deployment on push to main branch (after PR merge)
+- **Restrictions**: Only main branch can deploy due to environment protection rules
+- **Manual**: Can be triggered manually from Actions tab
+- **Live URL**: https://shimasan0x00.github.io/jinja-pad/
+- **Setup**: First-time setup requires GitHub Pages to be enabled (see GITHUB_PAGES_SETUP.md)
 
 ## Application Features
 
@@ -112,4 +115,23 @@ python -m http.server 8000
 - Dependencies are loaded via CDN, no package management needed
 - Focus on educational use cases for Jinja template learning
 - Maintain Japanese language support throughout UI and documentation
+
+## Important Files Reference
+
+- **WORKFLOW.md**: Detailed workflow checklist and troubleshooting for branch management
+- **GITHUB_PAGES_SETUP.md**: GitHub Pages initial setup guide and deployment troubleshooting
+- **setup-hooks.sh**: Git hooks installation script (run once per developer)
+- **.githooks/pre-commit**: Pre-commit hook that prevents commits to main branch
+
+## Common Issues and Solutions
+
+### Git Workflow Issues
+- **Problem**: Working on main branch accidentally
+- **Solution**: Use git hooks (`./setup-hooks.sh`) or see WORKFLOW.md for recovery steps
+
+### Deployment Issues  
+- **Problem**: "Pages site not found" errors
+- **Solution**: Follow GITHUB_PAGES_SETUP.md to enable GitHub Pages first
+- **Problem**: Feature branch deployment rejected
+- **Solution**: Expected behavior - only main branch can deploy due to environment protection
 

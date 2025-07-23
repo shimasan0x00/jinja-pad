@@ -45,7 +45,7 @@ Claude Codeで作業する際のルールなのだ：
 5. **PR**: mainにマージするためのプルリクエストを作成するのだ
 
 ### Git Hooks設定:
-`./setup-hooks.sh` を実行してこのワークフローを自動的に強制するgit hooksをインストールするのだ。
+**すべての開発者必須**: `./setup-hooks.sh` を実行してこのワークフローを自動的に強制し、mainブランチへのコミットを防ぐgit hooksをインストールするのだ。
 
 ### ブランチ命名規則:
 - ✅ `feature/jinja-pad-implementation`
@@ -86,8 +86,11 @@ python -m http.server 8000
 - すべてのドキュメントは日本語なのだ
 
 ### デプロイ
-- mainブランチへのプッシュで自動的にGitHub Pagesにデプロイされるのだ
-- ライブURL: https://shimasan0x00.github.io/jinja-pad/
+- **起動条件**: mainブランチへのプッシュ時（PRマージ後）に自動デプロイ
+- **制限事項**: 環境保護ルールによりmainブランチからのみデプロイ可能
+- **手動実行**: Actionsタブからでも手動実行可能
+- **ライブURL**: https://shimasan0x00.github.io/jinja-pad/
+- **初期設定**: 初回はGitHub Pagesの有効化が必要（GITHUB_PAGES_SETUP.mdを参照）
 
 ## アプリケーション機能
 
@@ -111,4 +114,23 @@ python -m http.server 8000
 - これはビルドプロセスのない純粋な静的サイトなのだ
 - 依存関係はCDN経由で読み込まれ、パッケージ管理は不要なのだ
 - Jinjaテンプレート学習の教育用途に焦点を当てているのだ
-- UI全体とドキュメントで日本語サポートを維持するのだ 
+- UI全体とドキュメントで日本語サポートを維持するのだ
+
+## 重要ファイル参照
+
+- **WORKFLOW.md**: ブランチ管理の詳細ワークフローチェックリストとトラブルシューティング
+- **GITHUB_PAGES_SETUP.md**: GitHub Pages初期設定ガイドとデプロイトラブルシューティング
+- **setup-hooks.sh**: Git hooksインストールスクリプト（開発者ごとに1回実行）
+- **.githooks/pre-commit**: mainブランチへのコミットを防ぐpre-commitフック
+
+## よくある問題と解決策
+
+### Gitワークフローの問題
+- **問題**: 誤ってmainブランチで作業してしまった
+- **解決**: git hooks（`./setup-hooks.sh`）を使用するか、WORKFLOW.mdの復旧手順を参照するのだ
+
+### デプロイの問題  
+- **問題**: "Pages site not found" エラー
+- **解決**: GITHUB_PAGES_SETUP.mdに従って最初にGitHub Pagesを有効化するのだ
+- **問題**: フィーチャーブランチからのデプロイが拒否される
+- **解決**: 正常な動作なのだ - 環境保護によりmainブランチからのみデプロイ可能なのだ 
