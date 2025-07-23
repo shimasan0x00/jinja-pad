@@ -51,10 +51,10 @@ git clone https://github.com/shimasan0x00/jinja-pad.git
 cd jinja-pad
 
 # ローカルサーバーで実行（例：Python）
-python -m http.server 8000
+python -m http.server 9999
 
 # ブラウザでアクセス
-open http://localhost:8000
+open http://localhost:9999
 ```
 
 ## 技術スタック

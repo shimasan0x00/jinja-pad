@@ -22,7 +22,7 @@ function renderTemplate() {
         
         // テンプレートが空の場合の処理
         if (!templateContent.trim()) {
-            output.textContent = 'テンプレートを入力してください';
+            output.textContent = 'Please enter a template';
             return;
         }
         
@@ -32,7 +32,7 @@ function renderTemplate() {
             try {
                 data = JSON.parse(dataContent);
             } catch (jsonError) {
-                throw new Error(`JSONデータの形式が正しくありません: ${jsonError.message}`);
+                throw new Error(`Invalid JSON format: ${jsonError.message}`);
             }
         }
         
@@ -42,9 +42,9 @@ function renderTemplate() {
         
     } catch (error) {
         // エラーを表示
-        errorDisplay.textContent = `エラー: ${error.message}`;
+        errorDisplay.textContent = `Error: ${error.message}`;
         errorDisplay.style.display = 'block';
-        output.textContent = 'レンダリングエラーが発生しました';
+        output.textContent = 'Rendering error occurred';
     }
 }
 
@@ -52,7 +52,7 @@ function renderTemplate() {
 function clearInputs() {
     templateInput.value = '';
     dataInput.value = '';
-    output.textContent = 'レンダーボタンを押してテンプレートを処理してください';
+    output.textContent = 'Press the render button to process your template';
     errorDisplay.style.display = 'none';
     errorDisplay.textContent = '';
 }
@@ -135,7 +135,7 @@ nunjucks.addFilter('replace', function(str, old_str, new_str) {
 
 // デバッグ用の情報表示
 function showDebugInfo() {
-    console.log('Jinja Pad デバッグ情報:');
-    console.log('- Nunjucks バージョン:', nunjucks.VERSION || 'Unknown');
-    console.log('- 利用可能なフィルター:', Object.keys(nunjucks.filters || {}));
+    console.log('Jinja Pad Debug Info:');
+    console.log('- Nunjucks Version:', nunjucks.VERSION || 'Unknown');
+    console.log('- Available Filters:', Object.keys(nunjucks.filters || {}));
 }
