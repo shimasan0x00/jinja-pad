@@ -24,7 +24,92 @@ When working with Claude Code:
 - Do not create files outside of the project folder
 - Do not edit files located outside of the project folder
 
-## Branch Management
-- Always create and work on a feature branch (`feature/*`) when working.
-- After completing your work, include the ClaudeCode session ID and a summary of the changes in your commit message.
+## Branch Management [CRITICAL - MUST FOLLOW]
+
+⚠️ **MANDATORY WORKFLOW - NO EXCEPTIONS**
+
+Before making ANY changes to code files, you MUST:
+
+1. **FIRST ACTION**: Check current branch with `git branch`
+2. **IF ON MAIN**: Immediately create a feature branch:
+   ```bash
+   git checkout -b feature/descriptive-name
+   ```
+3. **NEVER WORK ON MAIN**: Direct work on main branch is strictly prohibited
+
+### Required Workflow Steps:
+1. **Start**: `git checkout -b feature/your-task-name` 
+2. **Work**: Make all changes on the feature branch
+3. **Commit**: Include ClaudeCode session ID in commit messages
+4. **Push**: `git push origin feature/your-task-name`
+5. **PR**: Create pull request to merge into main
+
+### Git Hooks Setup:
+Run `./setup-hooks.sh` to install git hooks that enforce this workflow automatically.
+
+### Branch Naming Convention:
+- ✅ `feature/jinja-pad-implementation`
+- ✅ `feature/add-new-templates`  
+- ✅ `feature/fix-responsive-design`
+- ❌ `main` (never work here directly)
+- ❌ `dev`, `develop` (use feature/* pattern)
+
+## Project Architecture
+
+Jinja Pad is a static HTML/CSS/JavaScript application for learning Jinja template syntax. No build process or package manager is required.
+
+### Key Files Structure
+- `index.html` - Main application with left-right split layout
+- `script.js` - Application logic using Nunjucks (Jinja2-compatible) template engine
+- `style.css` - Styling with main color #337d37 and responsive design
+- `test-templates.md` - Collection of sample templates for testing various Jinja features
+- `.github/workflows/pages.yml` - GitHub Pages auto-deployment configuration
+
+### Technology Stack
+- **Frontend**: Pure HTML5/CSS3/JavaScript (ES6+), no frameworks
+- **Template Engine**: Nunjucks loaded via CDN (jsdelivr)
+- **Deployment**: GitHub Pages with automated workflow
+- **Documentation**: Japanese-focused with textlint for quality control
+
+## Development Commands
+
+### Local Development
+```bash
+# Start local server (no Node.js required)
+python -m http.server 8000
+# Access at http://localhost:8000
+```
+
+### Documentation Quality
+- textlint is configured via MCP server (see .mcp.json)
+- Run textlint checks before committing documentation changes
+- All documentation is in Japanese
+
+### Deployment
+- Automatic deployment to GitHub Pages on push to main branch
+- Live URL: https://shimasan0x00.github.io/jinja-pad/
+
+## Application Features
+
+### Core Functionality
+- Left panel: Template input with JSON data input
+- Right panel: Rendered output with error display
+- Real-time rendering with Ctrl+Enter shortcut
+- Sample templates auto-load on first visit
+- Mobile-responsive design
+
+### Supported Jinja Features
+- Variable expansion: `{{ variable }}`
+- Loops: `{% for item in items %}`
+- Conditionals: `{% if condition %}`
+- Filters: `{{ variable | filter }}`
+- Nested objects: `{{ object.property }}`
+- Custom filters: length, first, last, join, replace
+
+## Development Notes
+
+- This is a pure static site with no build process
+- Dependencies are loaded via CDN, no package management needed
+- Focus on educational use cases for Jinja template learning
+- Maintain Japanese language support throughout UI and documentation
 
